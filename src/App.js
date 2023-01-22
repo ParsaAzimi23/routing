@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom/cjs/react-router-dom'
+import { Route, Switch, Link } from 'react-router-dom/cjs/react-router-dom'
 import Homepage from './components/Homepage'
 import Aboutus from './components/Aboutus'
 import Blog from './components/Blog'
@@ -10,10 +10,10 @@ export default class App extends Component {
     return (
       <div>
         <ul>
-          <li><a href='/'>Homepage</a></li>
-          <li><a href='/blog'>Blogs</a></li>
-          <li><a href='/products'>Products</a></li>
-          <li><a href='/aboutus'>About us</a></li>
+          <li><Link to='/'>Homepage</Link></li>
+          <li><Link to='/blog'>Blogs</Link></li>
+          <li><Link to='/products'>Products</Link></li>
+          <li><Link to='/aboutus'>About us</Link></li>
         </ul>
         <div>
           {/* when we are using switch we must take the most common URL which may repeat in different URLs, to the end of the route because it matches the first URL in all pages */}
