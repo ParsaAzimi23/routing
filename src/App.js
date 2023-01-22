@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom/cjs/react-router-dom'
+import { Route, Switch } from 'react-router-dom/cjs/react-router-dom'
 import Homepage from './components/Homepage'
 import Aboutus from './components/Aboutus'
 import Blog from './components/Blog'
@@ -16,11 +16,20 @@ export default class App extends Component {
           <li><a href='/aboutus'>About us</a></li>
         </ul>
         <div>
-          <Route path='/' component={Homepage} />
+          {/* when we are using switch we must take the most common URL which may repeat in different URLs, to the end of the route because it matches the first URL in all pages */}
+          <Switch>
+            <Route path='/aboutus' component={Aboutus} />
+            <Route path='/blog' component={Blog} />
+            <Route path='/products' component={Products} />
+            <Route path='/' component={Homepage} />
+          </Switch>
+        </div>
+        {/* <div>
+          <Route exact path='/' component={Homepage} />
           <Route path='/aboutus' component={Aboutus} />
           <Route path='/blog' component={Blog} />
           <Route path='/products' component={Products} />
-        </div>
+        </div> */}
       </div>
     )
   }
